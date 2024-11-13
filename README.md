@@ -1,2 +1,5 @@
-# Firefox-Template
-Firefox 拡張機能のテンプレート
+# Wall-Clock-Wigget
+
+ブラウザに表示するミニ時計
+
+pointer-events: none で背景化する

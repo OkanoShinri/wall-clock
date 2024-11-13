@@ -1,20 +1,16 @@
-//オプションページが開かれたとき、設定をストレージから読み取る
-browser.storage.local
-  .get()
-  .then((restoredSettings) => {
-    document.getElementById("hoge").value = restoredSettings.hoge;
-  })
-  .catch((e) => {
-    console.error(`Failed : ${e.message}`);
-  });
+// 保存ボタンがクリックされたときの処理
+document.getElementById("save-button").addEventListener("click", async () => {
+  const fontFamily = document.getElementById("font-select").value;
+  await browser.storage.sync.set({ fontFamily });
+  console.log("フォントが保存されました！");
+});
 
-// オプションページで設定を変更したとき、それをストレージに保存する
-document.getElementById("hoge").addEventListener("change", storeSettings);
-
-// option.htmlの内容をストレージにセットする
-function storeSettings() {
-  let hoge = document.getElementById("hoge").value;
-  browser.storage.local.set({
-    hoge: hoge,
-  });
+// ページ読み込み時に現在の設定を反映
+async function loadSettings() {
+  const { fontFamily } = await browser.storage.sync.get("fontFamily");
+  if (fontFamily) {
+    document.getElementById("font-select").value = fontFamily;
+  }
 }
+
+loadSettings();

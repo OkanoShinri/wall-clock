@@ -1,0 +1,22 @@
+#clock-extension {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 32px;
+    z-index: 2147483647;
+    pointer-events: none;
+    font-family:
+        'Liberation Serif', 'Noto Sans CJK JP',
+        /* Linux/Android/ChromeOS */
+        'TakaoGothic', 'VL Gothic',
+        /* Debian/Ubuntu */
+        'Yu Gothic', 'MS Gothic',
+        /* Windows */
+        'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Osaka-Mono',
+        /* Mac/iOS */
+        'Noto Sans JP', Monospace;
+}

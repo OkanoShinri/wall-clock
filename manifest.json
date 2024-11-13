@@ -1,31 +1,41 @@
 {
-  "manifest_version": 2,
-  "name": "Firefox-Template",
+  "manifest_version": 3,
+  "name": "Wall-Clock",
   "version": "0.0.1",
-
   "description": "",
-  "homepage_url": "https://github.com/OkanoShinri/Firefox-Template",
+  "homepage_url": "https://github.com/OkanoShinri/wall-clock",
   "icons": {
     "48": "icons/48.png",
     "96": "icons/96.png"
   },
-
-  "permissions": ["<all_urls>", "storage"],
+  "permissions": [
+    "activeTab"
+  ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": []
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/content_scripts/content.js"
+      ],
+      "css": [
+        "src/content_scripts/style.css"
+      ]
     }
   ],
-  "browser_action": {
+  "action": {
     "default_icon": "icons/32.png",
-    "default_title": "Firefox-Template",
+    "default_title": "Wall-Clock",
     "default_popup": "src/popup/popup.html"
   },
   "options_ui": {
-    "page": "src/option/options.html"
+    "page": "src/option/options.html",
+    "open_in_tab": true
   },
   "background": {
-    "scripts": ["src/background-scripts/background.js"]
+    "scripts": [
+      "src/background-scripts/background.js"
+    ]
   }
 }

@@ -1,10 +1,16 @@
 #clock-extension {
+    width: fit-content;
+    height: fit-content;
+    line-height: normal;
+    margin: auto;
+    padding: 5px 10px;
+
     position: fixed;
     right: 10px;
     bottom: 10px;
     background-color: rgba(0, 0, 0, 0.7);
     color: #ffffff;
-    padding: 5px 10px;
+
     border-radius: 5px;
     font-size: 32px;
     z-index: 2147483647;

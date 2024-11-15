@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Wall-Clock",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "homepage_url": "https://github.com/OkanoShinri/wall-clock",
   "browser_specific_settings": {
@@ -13,7 +13,8 @@
     "128": "icons/128.png"
   },
   "permissions": [
-    "activeTab"
+    "activetab",
+    "storage"
   ],
   "content_scripts": [
     {
@@ -28,6 +29,10 @@
       ]
     }
   ],
+  "action": {
+    "default_icon": "icons/128.png",
+    "default_popup": "src/popup/popup.html"
+  },
   "options_ui": {
     "page": "src/option/options.html",
     "open_in_tab": true

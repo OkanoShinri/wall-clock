@@ -8,18 +8,24 @@ function createClock() {
   clockDiv.id = "clock-extension";
   document.body.appendChild(clockDiv);
 
-  // TODO:
-  // フォント設定を取得したい
-  //const { fontFamily } = await browser.storage.sync.get("fontFamily");
+  // const fontFamily = browser.storage.local.get("font");
 
-  //if (fontFamily) {
-  //  clockDiv.style.fontFamily = fontFamily;
-  //}
+  // if (fontFamily) {
+  //   clockDiv.style.fontFamily = fontFamily;
+  // }
 
   function updateClock() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString();
-    clockDiv.textContent = timeString;
+    browser.storage.local.get("timezone").then((response) => {
+      const timezone = response.timezone
+      const now = new Date();
+      let timeString = now.toLocaleTimeString();
+
+      if (timezone != {} && timezone != "none") {
+        timeString = now.toLocaleTimeString([], { timeZone: timezone });
+      }
+      clockDiv.textContent = timeString;
+    })
+
   }
 
   setInterval(updateClock, 100);
@@ -39,3 +45,27 @@ function observeDOMChanges() {
 
 observeDOMChanges();
 createClock();
+
+browser.runtime.onMessage.addListener((message) => {
+
+  let response = "Hi"
+
+  if (!message.command) {
+    return;
+  }
+  switch (message.command) {
+    case "toggle_clock": {
+      let display_style = "none"
+      if (message.checked)
+        display_style = "block"
+      document.getElementById("clock-extension").style.display = display_style
+    }
+    case "tell_me_display_style": {
+      response = document.getElementById("clock-extension").style.display;
+    }
+    default:
+      break;
+  }
+
+  return Promise.resolve({ response: response });
+});

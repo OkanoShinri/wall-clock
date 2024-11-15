@@ -1,15 +1,76 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Popup</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <h1>工事中</h1>
+    <div class="settings-container">
+        <h1 class="settings-title">Wall-Clock Settings</h1>
+
+        <!-- Toggle Switch for Content Display -->
+        <div class="setting-item">
+            <label for="display_check" class="setting-label">Show Clock</label>
+            <label class="switch">
+                <input type="checkbox" id="display_check">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <!-- Font Selection Dropdown -->
+        <!-- <div class="setting-item">
+            <label for="font_select" class="setting-label">Select Font</label>
+            <select id="font_select" class="dropdown">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+            </select>
+        </div> -->
+
+        <!-- Timezone Selection Dropdown -->
+        <div class="setting-item">
+            <label for="time_zone" class="setting-label">Select Time Zone</label>
+            <select id="time_zone" class="dropdown">
+                <option value="none">Default (your region)</option>
+                <option value="America/New_York">New York (EST)</option>
+                <option value="America/Chicago">Chicago (CST)</option>
+                <option value="America/Los_Angeles">Los Angeles (PST)</option>
+                <option value="America/Denver">Denver (MST)</option>
+                <option value="America/Toronto">Toronto (EST)</option>
+                <option value="America/Sao_Paulo">São Paulo (BRT)</option>
+                <option value="Europe/London">London (GMT)</option>
+                <option value="Europe/Paris">Paris (CET)</option>
+                <option value="Europe/Berlin">Berlin (CET)</option>
+                <option value="Europe/Moscow">Moscow (MSK)</option>
+                <option value="Asia/Tokyo">Tokyo (JST)</option>
+                <option value="Asia/Seoul">Seoul (KST)</option>
+                <option value="Asia/Shanghai">Shanghai (CST)</option>
+                <option value="Asia/Singapore">Singapore (SGT)</option>
+                <option value="Asia/Hong_Kong">Hong Kong (HKT)</option>
+                <option value="Asia/Dubai">Dubai (GST)</option>
+                <option value="Asia/Kolkata">Kolkata (IST)</option>
+                <option value="Australia/Sydney">Sydney (AEDT)</option>
+                <option value="Australia/Melbourne">Melbourne (AEDT)</option>
+                <option value="Pacific/Auckland">Auckland (NZDT)</option>
+                <option value="Pacific/Honolulu">Honolulu (HST)</option>
+                <option value="Africa/Johannesburg">Johannesburg (SAST)</option>
+                <option value="Africa/Cairo">Cairo (EET)</option>
+                <option value="America/Mexico_City">Mexico City (CST)</option>
+                <option value="America/Vancouver">Vancouver (PST)</option>
+                <option value="America/Argentina/Buenos_Aires">Buenos Aires (ART)</option>
+            </select>
+        </div>
+    </div>
+
+
+    <script src="popup.js"></script>
+
 </body>
 
 </html>

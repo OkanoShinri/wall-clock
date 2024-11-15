@@ -1,5 +1,7 @@
 # Wall-Clock
 
+https://addons.mozilla.org/en-US/firefox/addon/wall-clock/
+
 **Wall-Clock** is a lightweight Firefox extension that displays a small clock in the corner of your web pages, helping you keep track of time without interrupting your browsing experience.
 
 
@@ -15,4 +17,4 @@ Keep an eye out for further updates!
 
 #### TODO:
 - [ ] custom font
-- [ ] local time
+- [x] local time

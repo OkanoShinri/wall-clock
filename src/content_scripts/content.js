@@ -48,11 +48,32 @@ function observeDOMChanges() {
   observer.observe(document.body, { childList: true, subtree: true });
 }
 
+
+
 observeDOMChanges();
 createClock();
+// スタイルシートを動的に作成して、Google Fontsを読み込む
+browser.storage.local.get().then((response) => {
+  let fontfamily = response.fontfamily
+  if (typeof fontfamily === "undefined" || fontfamily == "") {
+    fontfamily = "Cutive Mono"
+  }
+  function sanitize(text) {
+    let sanitizedText = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    return sanitizedText.replace(/\s+/g, '+');
+  }
+  const style = document.createElement('style');
+  style.textContent = `
+  @import url('https://fonts.googleapis.com/css2?family=${sanitize(fontfamily)}&display=swap&text=0123456789%3A');
+  #clock-extension {
+  font-family:
+        "${fontfamily}", 'Liberation Serif', Monospace;
+  }
+`;
+  document.head.appendChild(style);
+})
 
 browser.runtime.onMessage.addListener((message) => {
-
   let response = "Hi"
 
   if (!message.command) {

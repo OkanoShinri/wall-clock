@@ -26,21 +26,18 @@
             <input type="number" id="font-size-input" class="number-input" min="10" value="32">
         </div>
 
-        <!-- Font Selection Dropdown -->
-        <!-- <div class="setting-item">
-            <label for="font_select" class="setting-label">Select Font</label>
-            <select id="font_select" class="dropdown">
-                <option value="Arial">Arial</option>
-                <option value="Verdana">Verdana</option>
-                <option value="Courier New">Courier New</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Times New Roman">Times New Roman</option>
-            </select>
-        </div> -->
+        <div class="setting-item">
+            <label for="custom-font-input" class="setting-label">
+                Custom Font
+                <span class="help-icon" data-tooltip="You can choose a font from Google Fonts.
+                    Reload the page to apply changes.">?</span>
+            </label>
+            <input type="text" id="custom-font-input" class="text-input" placeholder="Cutive Mono">
+        </div>
 
         <!-- Timezone Selection Dropdown -->
         <div class="setting-item">
-            <label for="time_zone" class="setting-label">Select Time Zone</label>
+            <label for="time_zone" class="setting-label">Time Zone</label>
             <select id="time_zone" class="dropdown">
                 <option value="none">Default (your region)</option>
                 <option value="America/New_York">New York (EST)</option>

@@ -1,20 +1,20 @@
 browser.storage.local
     .get()
     .then((restoredSettings) => {
-        // document.getElementById("font_select").value =
-        //     restoredSettings.font;
-        if (restoredSettings.timezone != {}) {
-            document.getElementById("time_zone").value =
-                restoredSettings.timezone;
-        }
-        else {
+        if ("timezone" in restoredSettings) {
+            document.getElementById("time_zone").value = restoredSettings.timezone;
+        } else {
             document.getElementById("time_zone").value = "none"
         }
-        if (restoredSettings.fontsize != {}) {
-            document.getElementById("font-size-input").value =
-                restoredSettings.fontsize;
+        if ("fontsize" in restoredSettings) {
+            document.getElementById("font-size-input").value = restoredSettings.fontsize;
         } else {
             document.getElementById("font-size-input").value = 32
+        }
+        if ("fontfamily" in restoredSettings) {
+            document.getElementById("custom-font-input").value = restoredSettings.fontfamily;
+        } else {
+            document.getElementById("custom-font-input").value = "Cutive Mono"
         }
     })
     .catch((e) => {
@@ -56,6 +56,9 @@ function sendDisplayStatus(tabs) {
 
 document.getElementById("font-size-input").addEventListener("change", () => {
     browser.storage.local.set({ fontsize: document.getElementById("font-size-input").value });
+});
+document.getElementById("custom-font-input").addEventListener("input", () => {
+    browser.storage.local.set({ fontfamily: document.getElementById("custom-font-input").value });
 });
 document.getElementById("time_zone").addEventListener("change", () => {
     browser.storage.local.set({ timezone: document.getElementById("time_zone").value });

@@ -16,5 +16,5 @@ Keep an eye out for further updates!
 
 
 #### TODO:
-- [ ] custom font
+- [x] custom font
 - [x] local time

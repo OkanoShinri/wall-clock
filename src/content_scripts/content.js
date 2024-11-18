@@ -15,7 +15,7 @@ function createClock() {
   // }
 
   function updateClock() {
-    browser.storage.local.get("timezone").then((response) => {
+    browser.storage.local.get().then((response) => {
       const timezone = response.timezone
       const now = new Date();
       let timeString = now.toLocaleTimeString();
@@ -24,8 +24,13 @@ function createClock() {
         timeString = now.toLocaleTimeString([], { timeZone: timezone });
       }
       clockDiv.textContent = timeString;
-    })
 
+      const fontsize = response.fontsize
+      if (fontsize != {}) {
+        clockDiv.style.fontSize = fontsize + "px"
+        clockDiv.style.borderRadius = fontsize * 0.2 + "px"
+      }
+    })
   }
 
   setInterval(updateClock, 100);

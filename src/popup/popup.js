@@ -7,6 +7,15 @@ browser.storage.local
             document.getElementById("time_zone").value =
                 restoredSettings.timezone;
         }
+        else {
+            document.getElementById("time_zone").value = "none"
+        }
+        if (restoredSettings.fontsize != {}) {
+            document.getElementById("font-size-input").value =
+                restoredSettings.fontsize;
+        } else {
+            document.getElementById("font-size-input").value = 32
+        }
     })
     .catch((e) => {
         console.error(`Failed : ${e.message}`);
@@ -45,6 +54,9 @@ function sendDisplayStatus(tabs) {
 };
 
 
+document.getElementById("font-size-input").addEventListener("change", () => {
+    browser.storage.local.set({ fontsize: document.getElementById("font-size-input").value });
+});
 document.getElementById("time_zone").addEventListener("change", () => {
     browser.storage.local.set({ timezone: document.getElementById("time_zone").value });
 });
